@@ -1,16 +1,12 @@
 'use strict';
 
-/* jasmine specs for controllers go here */
+describe('controllers', function() {
+  describe('PhoneListControl', function() {
+    it('should create model with 3 phones', function() {
+      var scope = {};
+      var ctrl = new PhoneListCtrl(scope);
+      expect(scope.phones.length).toBe(3);
+    });
+  });
+})
 
-describe('controllers', function(){
-  beforeEach(module('myApp.controllers'));
-
-
-  it('should ....', inject(function() {
-    //spec body
-  }));
-
-  it('should ....', inject(function() {
-    //spec body
-  }));
-});
