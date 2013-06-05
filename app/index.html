@@ -22,12 +22,15 @@
   </p>
   <h3>Showing results for: {{query}}</h3>
 
-  <ul class="phones">
-    <li ng-repeat="phone in phones | filter: query | orderBy: order"> 
-    <span>{{phone.name}}</span>
-    <p>
-      {{phone.snippet}}
-    </p>
+  <ul class="phone-thumbs">
+    <li class="thumbnail" ng-repeat="phone in phones | filter: query | orderBy: order"> 
+    <a href="#/phones/{{phone.id}}" class="thumb">
+      <img ng-src="{{phone.imageUrl}}">
+    </a>
+    <a href="#/phones/{{phone.id}}">
+      {{phone.name}}
+    </a>
+
   </li>
   </ul>
 
