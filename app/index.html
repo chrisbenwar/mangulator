@@ -10,18 +10,31 @@
   <h1>
     Check out these {{ (phones | filter: query).length }} phones!
   </h1>
-  <input ng-model="query" />
-
+  <p>
+  Search: <input ng-model="query" />
+  </p>
+  <p>
+  Order:
+  <select ng-model="order">
+    <option value="name">Alphabetical</option>
+    <option value="age">Release date</option>
+  </select>
+  </p>
   <h3>Showing results for: {{query}}</h3>
 
   <ul class="phones">
-    <li ng-repeat="phone in phones | filter: query"> 
+    <li ng-repeat="phone in phones | filter: query | orderBy: order"> 
     <span>{{phone.name}}</span>
     <p>
       {{phone.snippet}}
     </p>
   </li>
   </ul>
+
+  <h3>And this is what the JSON looks like</h3>
+  <p>
+    {{ phones | json }} 
+  </p>
   
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
