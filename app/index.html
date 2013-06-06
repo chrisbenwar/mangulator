@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="mangulator">
 <head>
   <meta charset="utf-8">
   <title>Most Buzzin' Phones</title>
@@ -7,42 +7,13 @@
 </head>
 <body ng-controller="PhoneListCtrl">
 
-  <h1>
-    Check out these {{ (phones | filter: query).length }} phones!
-  </h1>
-  <p>
-  Search: <input ng-model="query" />
-  </p>
-  <p>
-  Order:
-  <select ng-model="order">
-    <option value="name">Alphabetical</option>
-    <option value="age">Release date</option>
-  </select>
-  </p>
-  <h3>Showing results for: {{query}}</h3>
+  <div ng-view></div>
 
-  <ul class="phone-thumbs">
-    <li class="thumbnail" ng-repeat="phone in phones | filter: query | orderBy: order"> 
-    <a href="#/phones/{{phone.id}}" class="thumb">
-      <img ng-src="{{phone.imageUrl}}">
-    </a>
-    <a href="#/phones/{{phone.id}}">
-      {{phone.name}}
-    </a>
-
-  </li>
-  </ul>
-
-  <h3>And this is what the JSON looks like</h3>
-  <p>
-    {{ phones | json }} 
-  </p>
-  
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
   -->
   <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular/angular-resource.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
